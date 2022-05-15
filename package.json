@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@polight/lego": "^1.6.7"
+  }
+}
