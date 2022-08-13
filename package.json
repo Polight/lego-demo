@@ -1,8 +1,10 @@
 {
+  "type": "module",
   "scripts": {
     "build-demo": "npx lego"
   },
   "dependencies": {
-    "@polight/lego": "^1.6.7"
+    "@polight/lego": "*",
+    "petit-dom": "^0.6.0"
   }
 }
