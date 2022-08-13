@@ -1,23 +1,45 @@
-# Lego Web-Components Demo
+# Lego Web Components Demo
 
-This is a demo of [Lego](https://lego.js.org).
+This place is a good start to experiment the [Lego Webcomponents Library](https://github.com/Polight/lego).
 
-Lego is a minimalistic web-component library to build custom native HTML elements.
-It is lightweight, fast and future-proof.
+[Lego](https://lego.js.org) is a minimalistic web-component library to write HTML/CSS/JS that is modern, native and future-proof.
 
-[Read the documentation](https://lego.js.org).
+-[Read the documentation](https://lego.js.org).
 
-[Access the source code](https://github.com/polight/lego).
+## Usage of this demo
 
+### Install Lego Tools
 
-The demo was generated running the following command:
+[Lego](https://lego.js.org/getting-started/) is simple to install:
 
 ```
-npm install
-npm run build-demo
+npm install @polight/lego
 ```
 
-Then start a local server (ex: `python3 -m http.server 8080`) and open your browser
-at http://localhost:8080.
+or
 
-The index.css file is used for the demo interface and for some components.
+```
+yarn add @polight/lego
+```
+
+### Run
+
+```
+npx lego
+```
+
+or
+
+```
+yarn lego
+```
+
+Will transpile HTML components from _bricks/_ to JS components to _dist/_.
+
+## Preview the demo
+
+You should run your favorite local static server to view this demo site.
+
+For example if Python3 is install on your computer you may run `python3 -m http.server` and open your browser at http://localhost:8000.
+
+Of course you may use any other static page server like [http-server](https://github.com/http-party/http-server).
