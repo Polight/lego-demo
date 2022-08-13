@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@polight/lego@^1.6.7":
-  version "1.6.7"
-  resolved "https://registry.yarnpkg.com/@polight/lego/-/lego-1.6.7.tgz#0faf01a5938065ecfefcf6e43a338169b0b3017e"
-  integrity sha512-pfNWGgycl6bbWdnUTxECoHjFLmozfEM2f/JCHd2FIIXJ8bsEz7cnxV6Jv8QhA2fLP7Lhyf/YDi4A13CnXuG+bA==
+"@polight/lego@*":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@polight/lego/-/lego-1.7.1.tgz#b0777f2a8acfe1d1570b30de2f80a0704c2d3d80"
+  integrity sha512-Wb/VvxQeJ1Xmps9LybhaeD5j+yL621o3P4Sc0fAz1lxAqEW1tTKovvw5/dScdPPVE6n5w2G8b9onSoNUGRfIZg==
   dependencies:
     jsdom "^16.5.3"
     parse5 "^5.1.1"

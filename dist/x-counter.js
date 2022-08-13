@@ -1,6 +1,6 @@
 
 // Lego version 1.7.1
-import { h, Component } from 'https://cdn.jsdelivr.net/gh/Polight/lego@master/dist/lego.min.js.gz'
+import { h, Component } from 'https://cdn.jsdelivr.net/gh/Polight/lego@master/dist/lego.min.js'
 
 class Lego extends Component {
   get vdom() {
