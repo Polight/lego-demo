@@ -1,13 +1,13 @@
 
 // Lego version undefined
-import { h, Component } from 'https://unpkg.com/@polight/lego/dist/lego.min.js'
+import { h, Component } from '/lego.min.js'
 
 class Lego extends Component {
   get vdom() {
     return ({ state }) => [
   h("button", {"onclick": this.toggleText.bind(this)}, [
-    ((state.showText) ? h("span", {}, `text displayed! 🎪`) : ''),
-    ((!state.showText) ? h("span", {}, `text hidden 🕵️‍♀️`) : '')
+    ((state.showText) ? h("span", {}, `Wow, you're a clicker! 👾👾👾`) : ''),
+    ((!state.showText) ? h("span", {}, `Click me… 🎃`) : '')
 ])]
   }
   get vstyle() {
