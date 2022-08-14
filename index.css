@@ -11,10 +11,15 @@ h1 {
   box-shadow: 0 0 3px rgba(0, 0, 0, .3);
 }
 article {
+  max-width: 1200px;
+  margin: 5rem auto;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid #999;
+  gap: 1rem;
+}
+article > section {
   background-color: #f5f5f5;
   padding: 2rem;
-  margin: 1rem auto;
-  max-width: 500px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
 }
 article p {
@@ -40,7 +45,13 @@ button.reset {
   margin-left: 5rem;
 }
 
-span {
+progress {
+  display: block;
+  width: 100%;
+}
+
+/* Only reference span within the component, not in the HTML page */
+:host(x-counter) span {
   display: inline-block;
   font-size: 2rem;
   padding: 2rem;
@@ -48,7 +59,20 @@ span {
   text-align: right;
 }
 
-progress {
-  display: block;
-  width: 100%;
+/* code embedded */
+
+.emgithub-container {
+  margin: 0 !important;
+}
+
+@media screen and (min-width: 1200px) {
+  article {
+    display: flex;
+  }
+  article > section {
+    width: 50%;
+  }
+  article > aside {
+    width: 50%;
+  }
 }
