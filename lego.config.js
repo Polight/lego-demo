@@ -1,5 +1,5 @@
 export default {
-  distFile: 'lego.js',
+  distFile: 'lego.min.js',
   baseClassName: 'Lego',
   sourceDir: 'bricks',
   targetDir: 'dist',
