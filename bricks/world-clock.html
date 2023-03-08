@@ -1,0 +1,21 @@
+<script>
+  const state = { time: new Date(), country: undefined }
+
+  function constructed() {
+    setInterval(() => {
+      this.render({ time: new Date() })
+    }, 1000)
+  }
+</script>
+
+<template>
+  <p>
+    <img
+      :if="state.country"
+      :alt="state.country"
+      src="https://flagpedia.net/data/flags/w20/${state.country}.png"
+      >
+    <span :if="!state.country">In your country: </span>
+    ${ state.time.toLocaleTimeString(state.country) }
+  </p>
+</template>

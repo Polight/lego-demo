@@ -1,21 +1,17 @@
+<script>
+  const state = { showText: false }
+
+  function toggle() {
+    this.render({ showText: !this.state.showText })
+  }
+</script>
+
 <template>
-  <button @click="toggleText">
-    <span :if="state.showText">Wow, you're a clicker! 👾👾👾</span>
+  <button @click="toggle">
+    <span :if="state.showText">Now you see me 👻</span>
     <span :if="!state.showText">Click me… 🎃</span>
   </button>
 </template>
-
-<script>
-  export default class extends Lego {
-    init() {
-      this.state = { showText: false }
-    }
-
-    toggleText() {
-      this.render({ showText: !this.state.showText })
-    }
-  }
-</script>
 
 <style>
   button {

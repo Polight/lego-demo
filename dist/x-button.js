@@ -1,32 +1,48 @@
+// Lego version 2.0.0-beta.3
+import { h, Component } from './lego.js'
 
-// Lego version 1.7.1
-import { h, Component } from 'https://cdn.jsdelivr.net/gh/Polight/lego@master/dist/lego.min.js'
 
-class Lego extends Component {
-  get vdom() {
-    return ({ state }) => [
-  h("button", {"onclick": this.toggleText.bind(this)}, [
-    ((state.showText) ? h("span", {}, `Wow, you're a clicker! 👾👾👾`) : ''),
-    ((!state.showText) ? h("span", {}, `Click me… 🎃`) : '')
-])]
+
+  const state = { showText: false }
+
+  function toggle() {
+    this.render({ showText: !this.state.showText })
   }
-  get vstyle() {
-    return ({ state }) => h('style', {}, `
-    
-    button {
-    cursor: pointer;
-  }
-  `)}
+
+
+const __template = function({ state }) {
+  return [  
+    h("button", {"onclick": (typeof toggle === 'function' ? toggle.bind(this) : this.toggle).bind(this)}, [
+      ((state.showText) ? h("span", {}, `Now you see me 👻`) : ''),
+      ((!state.showText) ? h("span", {}, `Click me… 🎃`) : '')
+    ])
+  ]
 }
 
+const __style = function({ state }) {
+  return h('style', {}, `
+    
+    
+      button {
+        cursor: pointer;
+      }
+    
+  `)
+}
 
+// -- Lego Core
+let render = async function (state) {}
 
-export default class extends Lego {
-    init() {
-      this.state = { showText: false }
-    }
-
-    toggleText() {
-      this.render({ showText: !this.state.showText })
-    }
+export default class Lego extends Component {
+  constructed() {
+    render = this.render.bind(this)
+    if(typeof state === 'object') this.__state = Object.assign({}, state, this.__state)
+    if(typeof constructed === 'function') constructed.bind(this)(this.__state)
   }
+  
+  get vdom() { return __template }
+  get vstyle() { return __style }
+}
+// -- End Lego Core
+
+

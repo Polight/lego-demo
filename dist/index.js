@@ -1,8 +1,11 @@
-import XChat from './x-chat.js'
-customElements.define('x-chat', XChat)
+import XTiles from './x-tiles.js'
+customElements.define('x-tiles', XTiles)
 
-import CustomeventClock from './customevent-clock.js'
-customElements.define('customevent-clock', CustomeventClock)
+import WorldClock from './world-clock.js'
+customElements.define('world-clock', WorldClock)
+
+import XTile from './x-tile.js'
+customElements.define('x-tile', XTile)
 
 import XButton from './x-button.js'
 customElements.define('x-button', XButton)

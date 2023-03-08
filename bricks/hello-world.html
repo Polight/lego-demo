@@ -1,11 +1,7 @@
-<template>
-  <p>Hello ${state.name}</p>
-</template>
-
 <script>
-  export default class extends Lego {
-    init() {
-      this.state = { name: 'world' }
-    }
-  }
+  const state = { icon: '🌎', planet: 'world' }
 </script>
+
+<template>
+  <p>${ state.icon } Hello ${ state.planet }</p>
+</template>

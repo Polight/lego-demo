@@ -1,33 +1,57 @@
+// Lego version 2.0.0-beta.3
+import { h, Component } from './lego.js'
 
-// Lego version 1.7.1
-import { h, Component } from 'https://cdn.jsdelivr.net/gh/Polight/lego@master/dist/lego.min.js'
 
-class Lego extends Component {
-  get vdom() {
-    return ({ state }) => [
-  h("button", {"class": `primary`, "onclick": this.decrement.bind(this)}, `-`),
-  h("span", {}, `${ state.counter * 10 }%`),
-  h("button", {"onclick": this.increment.bind(this)}, `+`),
-  h("button", {"onclick": this.reset.bind(this), "class": `reset`}, `♻`),
-  h("progress", {"value": `50`, "max": `100`, "title": `Represents the value of ${state.counter} in percentage`}, "")]
+
+  const state = { counter: 0 }
+
+  function increment() {
+    this.render({ counter: this.state.counter + 1 })
   }
-  get vstyle() {
-    return ({ state }) => h('style', {}, `
-    
-    @import url('index.css');
-  `)}
+  function decrement() {
+    this.render({ counter: this.state.counter - 1 })
+  }
+  function reset() {
+    this.render({ counter: 0 })
+  }
+
+
+const __template = function({ state }) {
+  return [  
+    h("button", {"class": `primary`, "onclick": (typeof decrement === 'function' ? decrement.bind(this) : this.decrement).bind(this)}, `-`),
+    h("span", {}, `${ state.counter }`),
+    h("button", {"onclick": (typeof increment === 'function' ? increment.bind(this) : this.increment).bind(this)}, `+`),
+    h("button", {"onclick": (typeof reset === 'function' ? reset.bind(this) : this.reset).bind(this), "class": `reset`}, `reset`),
+    h("progress", {"value": state.counter, "max": `10`, "title": `Counter is at ${state.counter}`}, "")
+  ]
 }
 
-
-
-export default class extends Lego {
-    init() {
-      this.state = {
-        counter: 0
+const __style = function({ state }) {
+  return h('style', {}, `
+    
+    
+      @import url('index.css');
+      
+      progress {
+        max-width: 300px;
       }
-    }
+    
+  `)
+}
 
-    increment() { this.render({ counter: this.state.counter + 1 }) }
-    decrement() { this.render({ counter: this.state.counter - 1 }) }
-    reset() { this.render({ counter: 0 }) }
+// -- Lego Core
+let render = async function (state) {}
+
+export default class Lego extends Component {
+  constructed() {
+    render = this.render.bind(this)
+    if(typeof state === 'object') this.__state = Object.assign({}, state, this.__state)
+    if(typeof constructed === 'function') constructed.bind(this)(this.__state)
   }
+  
+  get vdom() { return __template }
+  get vstyle() { return __style }
+}
+// -- End Lego Core
+
+
