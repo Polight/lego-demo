@@ -1,0 +1,26 @@
+<script>
+  const state = { red: 0, green: 0, blue: 0 }
+  const duration = 400
+
+  function colorize() {
+    this.render({
+      red: (this.state.red + 33) % 255,
+      green: (this.state.green + 55) % 255,
+      blue: (this.state.blue + 77) % 255
+    })
+  }
+</script>
+
+<template>
+  <div @mouseover="colorize"></div>
+</template>
+
+<style>
+  div {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-color: rgba(${state.red}, ${state.green}, ${state.blue});
+    transition: background-color ${ duration }ms linear;
+  }
+</style>
