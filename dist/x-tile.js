@@ -40,7 +40,7 @@ const __style = function({ state }) {
 export default class Lego extends Component {
   constructed() {
     if(typeof state === 'object') this.__state = Object.assign({}, state, this.__state)
-    if(typeof constructed === 'function') constructed.bind(this)(this.__state)
+    if(typeof constructed === 'function') constructed.bind(this)()
   }
   get vdom() { return __template }
   get vstyle() { return __style }
