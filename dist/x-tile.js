@@ -14,6 +14,13 @@ import { h, Component } from './lego.min.js'
     })
   }
 
+  function constructed() {
+    this.reset = () => {
+      clearInterval(this.state.loopId)
+      this.render(state)
+    }
+  }
+
 
 const __template = function({ state }) {
   return [  

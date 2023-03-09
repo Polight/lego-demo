@@ -9,6 +9,13 @@
       blue: (this.state.blue + 77) % 255
     })
   }
+
+  function constructed() {
+    this.reset = () => {
+      clearInterval(this.state.loopId)
+      this.render(state)
+    }
+  }
 </script>
 
 <template>
