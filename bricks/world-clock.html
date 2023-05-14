@@ -1,7 +1,7 @@
 <script>
   const state = { time: new Date(), country: undefined }
 
-  function constructed() {
+  function connected() {
     setInterval(() => {
       this.render({ time: new Date() })
     }, 1000)

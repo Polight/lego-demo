@@ -45,9 +45,13 @@ const __style = function({ state }) {
 
 // -- Lego Core
 export default class Lego extends Component {
-  constructed() {
+  init() {
     if(typeof state === 'object') this.__state = Object.assign({}, state, this.__state)
-    if(typeof constructed === 'function') constructed.bind(this)()
+    if(typeof setup === 'function') setup.bind(this)()
+  }
+  connectedCallback() {
+    if(typeof connected === 'function') connected.bind(this)()
+    super.connectedCallback()
   }
   get vdom() { return __template }
   get vstyle() { return __style }
