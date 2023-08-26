@@ -2,19 +2,19 @@
   const state = { red: 0, green: 0, blue: 0 }
   const duration = 400
 
-  function colorize() {
-    this.render({
-      red: (this.state.red + 33) % 255,
-      green: (this.state.green + 55) % 255,
-      blue: (this.state.blue + 77) % 255
-    })
-  }
+  const methods = {
+    colorize() {
+      this.render({
+        red: (this.state.red + 33) % 255,
+        green: (this.state.green + 55) % 255,
+        blue: (this.state.blue + 77) % 255
+      })
+    },
 
-  function constructed() {
-    this.reset = () => {
+    reset() {
       clearInterval(this.state.loopId)
       this.render(state)
-    }
+    },
   }
 </script>
 

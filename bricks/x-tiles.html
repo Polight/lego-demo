@@ -2,8 +2,10 @@
   const rows = Array(8).fill()
   const cols = Array(24).fill()
 
-  function reset() {
-    [...this.document.querySelectorAll('x-tile')].forEach(tile =>tile.reset())
+  const methods = {
+    reset() {
+      [...this.document.querySelectorAll('x-tile')].forEach(tile =>tile.reset())
+    }
   }
 </script>
 

@@ -1,14 +1,16 @@
 <script>
   const state = { counter: 0 }
 
-  function increment() {
-    this.render({ counter: this.state.counter + 1 })
-  }
-  function decrement() {
-    this.render({ counter: this.state.counter - 1 })
-  }
-  function reset() {
-    this.render({ counter: 0 })
+  const methods = {
+    increment() {
+      this.render({ counter: this.state.counter + 1 })
+    },
+    decrement() {
+      this.render({ counter: this.state.counter - 1 })
+    },
+    reset() {
+      this.render({ counter: 0 })
+    },
   }
 </script>
 

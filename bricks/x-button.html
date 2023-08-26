@@ -1,8 +1,10 @@
 <script>
   const state = { showText: false }
 
-  function toggle() {
-    this.render({ showText: !this.state.showText })
+  const methods = {
+    toggle() {
+      this.render({ showText: !this.state.showText })
+    }
   }
 </script>
 
