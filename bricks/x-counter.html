@@ -1,16 +1,18 @@
 <script>
-  const state = { counter: 0 }
+  export default class extends Lego {
+    state = { counter: 0 }
 
-  const methods = {
     increment() {
       this.render({ counter: this.state.counter + 1 })
-    },
+    }
+
     decrement() {
       this.render({ counter: this.state.counter - 1 })
-    },
+    }
+
     reset() {
       this.render({ counter: 0 })
-    },
+    }
   }
 </script>
 
@@ -19,12 +21,16 @@
   <span>${ state.counter }</span>
   <button @click="increment">+</button>
   <button @click="reset" class="reset">reset</button>
-  <progress :value="state.counter" max="10" title="Counter is at ${state.counter}"></progress>
+  <progress
+    :value="state.counter"
+    max="10"
+    title="Counter is at ${state.counter}"
+  ></progress>
 </template>
 
 <style>
   @import url('index.css');
-  
+
   progress {
     max-width: 300px;
   }

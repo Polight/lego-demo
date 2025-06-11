@@ -1,7 +1,7 @@
 <script>
-  const state = { showText: false }
+  export default class extends Lego {
+    state = { showText: false }
 
-  const methods = {
     toggle() {
       this.render({ showText: !this.state.showText })
     }
