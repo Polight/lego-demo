@@ -1,50 +1,35 @@
- // Lego version 2.0.0-beta.3
-  import { h, Component } from './lego.min.js'
-  
 
-  
-  const rows = Array(8).fill()
-  const cols = Array(24).fill()
+// Lego version 1.10.1
+import { h, Component } from 'https://cdn.jsdelivr.net/npm/@polight/lego@1.10.1/dist/lego.min.js'
 
-  const methods = {
-    reset() {
-      [...this.document.querySelectorAll('x-tile')].forEach(tile =>tile.reset())
-    }
+class Lego extends Component {
+  useShadowDOM = true
+
+  get vdom() {
+    return ({ state }) => [
+  ((this.rows).map((row, i) => (h("div", {}, [
+    ((this.cols).map((col, j) => (h("x-tile", {"delay": i * 10 + j}, ""))))
+])))),
+  h("button", {"onclick": this.reset.bind(this)}, `Reset`)]
   }
-
-
-  const __template = function({ state }) {
-    return [  
-    ((rows).map((row, i) => (h("div", {}, [
-      ((cols).map((col, j) => (h("x-tile", {"delay": i * 10 + j}, ""))))
-    ])))),
-    h("button", {"onclick": this.reset.bind(this)}, `Reset`)
-  ]
-  }
-
-  const __style = function({ state }) {
-    return h('style', {}, `
-      
-      
-      :host > div {
-        height: 20px;
-      }
+  get vstyle() {
+    return ({ state }) => h('style', {}, `
     
-    `)
+    :host > div {
+    height: 20px;
   }
+  `)}
+}
 
-  // -- Lego Core
-  export default class Lego extends Component {
-    init() {
-      this.useShadowDOM = true
-      if(typeof state === 'object') this.__state = Object.assign({}, state, this.__state)
-      if(typeof methods === 'object') Object.keys(methods).forEach(methodName => this[methodName] = methods[methodName])
-      if(typeof connected === 'function') this.connected = connected
-      if(typeof setup === 'function') setup.bind(this)()
+
+
+export default class extends Lego {
+    rows = Array(8).fill()
+    cols = Array(24).fill()
+
+    reset() {
+      ;[...this.document.querySelectorAll('x-tile')].forEach(tile =>
+        tile.reset()
+      )
     }
-    get vdom() { return __template }
-    get vstyle() { return __style }
   }
-  // -- End Lego Core
-
-  

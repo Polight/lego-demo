@@ -1,17 +1,19 @@
 <script>
-  const rows = Array(8).fill()
-  const cols = Array(24).fill()
+  export default class extends Lego {
+    rows = Array(8).fill()
+    cols = Array(24).fill()
 
-  const methods = {
     reset() {
-      [...this.document.querySelectorAll('x-tile')].forEach(tile =>tile.reset())
+      ;[...this.document.querySelectorAll('x-tile')].forEach(tile =>
+        tile.reset()
+      )
     }
   }
 </script>
 
 <template>
-  <div :for="row, i in rows">
-    <x-tile :for="col, j in cols" :delay="i * 10 + j"></x-tile>
+  <div :for="row, i in this.rows">
+    <x-tile :for="col, j in this.cols" :delay="i * 10 + j"></x-tile>
   </div>
 
   <button @click="reset">Reset</button>

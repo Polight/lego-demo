@@ -1,10 +1,12 @@
 <script>
-  const state = { time: new Date(), country: undefined }
+  export default class extends Lego {
+    state = { time: new Date(), country: undefined }
 
-  function connected() {
-    setInterval(() => {
-      this.render({ time: new Date() })
-    }, 1000)
+    connected() {
+      setInterval(() => {
+        this.render({ time: new Date() })
+      }, 1000)
+    }
   }
 </script>
 
@@ -14,7 +16,7 @@
       :if="state.country"
       :alt="state.country"
       src="https://flagpedia.net/data/flags/w20/${state.country}.png"
-      >
+    />
     <span :if="!state.country">In your country: </span>
     ${ state.time.toLocaleTimeString(state.country) }
   </p>

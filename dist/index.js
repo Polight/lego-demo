@@ -1,17 +1,17 @@
-import XTiles from './x-tiles.js'
-customElements.define('x-tiles', XTiles)
+import xButton from './x-button.js'
+customElements.define('x-button', xButton)
 
-import WorldClock from './world-clock.js'
-customElements.define('world-clock', WorldClock)
+import helloWorld from './hello-world.js'
+customElements.define('hello-world', helloWorld)
 
-import XTile from './x-tile.js'
-customElements.define('x-tile', XTile)
+import xTiles from './x-tiles.js'
+customElements.define('x-tiles', xTiles)
 
-import XButton from './x-button.js'
-customElements.define('x-button', XButton)
+import xCounter from './x-counter.js'
+customElements.define('x-counter', xCounter)
 
-import HelloWorld from './hello-world.js'
-customElements.define('hello-world', HelloWorld)
+import xTile from './x-tile.js'
+customElements.define('x-tile', xTile)
 
-import XCounter from './x-counter.js'
-customElements.define('x-counter', XCounter)
+import worldClock from './world-clock.js'
+customElements.define('world-clock', worldClock)
